@@ -4,7 +4,8 @@ public class PasswordGenerator {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Chiedi all'utente le informazioni
+        // Chiedo all'utente le informazioni nome, cognome e colore preferito
+    
         System.out.print("Inserisci il tuo nome: ");
         String nome = scanner.nextLine();
 
