@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.time.DateTimeException;
+import java.time.LocalDate;
 
 public class PasswordGenerator {
     public static void main(String[] args) {
@@ -14,7 +16,10 @@ public class PasswordGenerator {
         System.out.print("Inserisci il tuo colore preferito: ");
         String colorePreferito = scanner.nextLine();
 
-        System.out.print("Inserisci il giorno di nascita (es. 12): ");
+    boolean dataValida = false;
+    while (!dataValida) {
+        try {
+            System.out.print("Inserisci il giorno di nascita (es. 12): ");
         int giorno = scanner.nextInt();
 
         System.out.print("Inserisci il mese di nascita (es. 5): ");
@@ -22,16 +27,19 @@ public class PasswordGenerator {
 
         System.out.print("Inserisci l'anno di nascita (es. 1994): ");
         int anno = scanner.nextInt();
-
-        // Calcola la somma di giorno, mese e anno
+        
+        //creo una data per verificare che sia valida
+        LocalDate dataNascita = LocalDate.of(giorno,mese,anno);
+        dataValida = true; 
+         // Calcola la somma di giorno, mese e anno
         int sommaData = giorno + mese + anno;
 
-        // Genera la password
+          // Genera la password
         String password = nome + "-" + cognome + "-" + colorePreferito + "-" + sommaData;
-
-        // Stampa la password
-        System.out.println("La tua password generata è: " + password);
-
-        scanner.close();
+        } catch (DateTimeException e) {
+            System.out.print("Data non valida! Riprovare.");
+            scanner.nextLine();
+        }
+        
     }
 }
