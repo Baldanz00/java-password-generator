@@ -1,6 +1,6 @@
-import java.util.Scanner;
 import java.time.DateTimeException;
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class PasswordGenerator {
     public static void main(String[] args) {
@@ -43,4 +43,5 @@ public class PasswordGenerator {
         }
         
     }
+}
 }
